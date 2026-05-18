@@ -17,26 +17,19 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
-    <!--body content -->
-<body>
     <div class="container">
         <!-- Header -->
         <div class="header-bar">
             <div>
                 <h1>📘 Facebook Post Extractor</h1>
-                <p class="subtitle">Extract dates, locations, people, actions & comments – save <strong>CSV</strong>file to your computer</p>
+                <p class="subtitle">Extract dates, locations, people, actions & comments – save <strong>CSV</strong> file to your computer</p>
             </div>
         </div>
         
-        <!-- Under Construction Banner -->
-        <div style="background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); border-left: 4px solid #f59e0b; padding: 10px 16px; margin-bottom: 20px; border-radius: 8px; display: flex; align-items: center; gap: 12px;">
-            
-        </div>
-        
         <!-- Helpful Info Banner -->
-        <div class="info-banner" style="background: #e6f7ff; border-left: 4px solid #1890ff; padding: 12px; margin-bottom: 20px; border-radius: 8px; display: flex; gap: 12px;">
-            <div style="font-size: 24px;">💡</div>
-            <div>
+        <div class="info-banner">
+            <div class="info-banner-icon">💡</div>
+            <div class="info-banner-content">
                 <strong>📌 How to get the best results:</strong><br>
                 ✅ Copy the <strong>entire Facebook post</strong> including the author name, date/time, and all comments<br>
                 ✅ The tool automatically extracts: <strong>📅 Date & Time</strong> | <strong>📍 Locations</strong> | <strong>👥 People mentioned</strong> | <strong>💬 All comments</strong> | <strong>🏷️ Action type</strong><br>
@@ -65,29 +58,29 @@
             </div>
             
             <div class="button-group" style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 10px;">
-                <button id="saveBtn" class="btn-primary" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; padding: 12px 24px; border-radius: 8px; cursor: pointer;">💾 Save Post to Your Computer</button>
-                <button id="debugBtn" class="btn-secondary" style="background: #6c5ce7; color: white; border: none; padding: 12px 24px; border-radius: 8px; cursor: pointer;">🔍 Test Date Extraction</button>
-                <button id="testDateBtn" class="btn-secondary" style="background: #9b59b6; color: white; border: none; padding: 12px 24px; border-radius: 8px; cursor: pointer;">🧪 Advanced Date Test</button>
+                <button id="saveBtn" class="btn-primary">💾 Save Post to Your Computer</button>
+                <button id="debugBtn" class="btn-secondary" style="background: #6c5ce7;">🔍 Test Date Extraction</button>
+                <button id="testDateBtn" class="btn-secondary" style="background: #9b59b6;">🧪 Advanced Date Test</button>
             </div>
             <div id="result"></div>
         </div>
         
         <!-- Keyword Manager Section -->
-        <div class="keyword-manager" style="background: white; border-radius: 16px; padding: 20px; margin-bottom: 24px; box-shadow: 0 10px 25px rgba(0,0,0,0.1);">
-            <h3 style="margin-bottom: 16px;">🏷️ Tracked Keywords (for action detection)</h3>
-            <div class="keyword-input-group" style="display: flex; gap: 10px; margin-bottom: 16px;">
-                <input type="text" id="newKeyword" placeholder="e.g., football, meeting, wedding" class="keyword-input" style="flex: 1; padding: 10px; border: 1px solid #ddd; border-radius: 8px;">
-                <button id="addKeywordBtn" class="btn-small" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer;">➕ Add Keyword</button>
+        <div class="keyword-manager">
+            <h3>🏷️ Tracked Keywords (for action detection)</h3>
+            <div class="keyword-input-group">
+                <input type="text" id="newKeyword" placeholder="e.g., football, meeting, wedding" class="keyword-input">
+                <button id="addKeywordBtn" class="btn-small">➕ Add Keyword</button>
             </div>
-            <div id="keywordTags" class="keyword-tags" style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 12px; min-height: 50px;">
+            <div id="keywordTags" class="keyword-tags">
                 <p style="color: #999; font-size: 13px;">Loading keywords...</p>
             </div>
-            <p class="keyword-hint" style="font-size: 12px; color: #666; margin-top: 8px;">💡 When a keyword appears in a post, it becomes the <strong>action_type</strong>. Click ❌ to remove.</p>
+            <p class="keyword-hint">💡 When a keyword appears in a post, it becomes the <strong>action_type</strong>. Click ❌ to remove.</p>
         </div>
         
         <!-- Statistics Section -->
-        <div class="stats-section" style="background: white; border-radius: 16px; padding: 20px; margin-bottom: 24px; box-shadow: 0 10px 25px rgba(0,0,0,0.1);">
-            <h3 style="margin-bottom: 16px;">📈 Your Statistics</h3>
+        <div class="stats-section">
+            <h3>📈 Your Statistics</h3>
             <div id="stats">📁 Select a folder to load existing data.</div>
         </div>
         
@@ -100,16 +93,13 @@
                 <strong>© 2026 Moses Kipkorir Cheruiyot</strong> | Facebook Post Extractor
             </p>
             <p style="margin: 0 0 8px 0; font-size: 12px; color: #666;">
-                Tel. 0114932232| email. cheruiyot171@gmail.com
-            </p>
-            <p style="margin: 0 0 8px 0; font-size: 12px; color: #666;">
-                
+                Tel. 0114932232 | email: cheruiyot171@gmail.com
             </p>
             <p style="margin: 0; font-size: 12px; color: #999;">
                 🔒 Your data never leaves your computer. All processing happens locally in your browser.
             </p>
             <p style="margin: 8px 0 0 0; font-size: 11px; color: #bbb;">
-                Version 1.0 | Under active development
+                Version 1.0 | Active
             </p>
         </div>
     </footer>
@@ -129,7 +119,6 @@
                 statusSpan.innerHTML = `✅ Folder: ${folderHandle.name}`;
                 statusSpan.style.color = '#22543d';
                 await loadExistingData();
-                // Also reload keywords from folder if exists
                 if (typeof loadKeywords === 'function') loadKeywords();
             } catch (error) {
                 console.error(error);
@@ -265,11 +254,11 @@
                 await saveCSVToFile('facebook_comments.csv', existingComments);
                 const warn = (!extracted.post_date || extracted.post_date === '❌ Not detected') ? '<div style="background:#fff3cd; padding:10px; margin-top:10px; border-left:4px solid #ffc107;">⚠️ No date detected. Facebook usually shows "14h", "Yesterday", or "April 28 at 5:40 AM".</div>' : '';
                 resultDiv.innerHTML = `
-                    <div class="success" style="background: #c6f6d5; color: #22543d; padding: 12px; border-radius: 8px; margin-bottom: 12px;">✅ Post saved!</div>
-                    <div class="extracted" style="background: #f7fafc; padding: 16px; border-radius: 12px;">
+                    <div class="success">✅ Post saved!</div>
+                    <div class="extracted">
                         📅 Date: <strong>${extracted.post_date || '—'}</strong><br>
                         📍 Location: ${extracted.locations || '—'}<br>
-                        🏷️ Action: <span style="background: #667eea; color: white; padding: 2px 8px; border-radius: 12px; font-size: 12px;">${extracted.action_type}</span><br>
+                        🏷️ Action: <span class="action-badge">${extracted.action_type}</span><br>
                         👥 People: ${extracted.people_mentioned || '—'}<br>
                         💬 Key quote: "${extracted.key_quote || ''}"<br>
                         💬 Comments found: ${(extracted.comments || []).length}<br>
@@ -281,7 +270,7 @@
                 document.getElementById('imageUrl').value = '';
                 displayStatsFromPosts(existingPosts);
             } catch(e) {
-                resultDiv.innerHTML = `<div class="error" style="background: #fed7d7; color: #742a2a; padding: 12px; border-radius: 8px;">❌ ${e.message}</div>`;
+                resultDiv.innerHTML = `<div class="error">❌ ${e.message}</div>`;
             }
         }
         
@@ -298,24 +287,24 @@
                 else withoutDate++;
             });
             statsDiv.innerHTML = `
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 16px; margin-bottom: 20px;">
-                    <div style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); padding: 16px; border-radius: 12px; text-align: center;">
-                        <div style="font-size: 28px; font-weight: bold; color: #667eea;">${posts.length}</div>
-                        <div style="font-size: 12px; color: #666;">Total Posts</div>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">${posts.length}</div>
+                        <div class="stat-label">Total Posts</div>
                     </div>
-                    <div style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); padding: 16px; border-radius: 12px; text-align: center;">
-                        <div style="font-size: 28px; font-weight: bold; color: #48bb78;">${withDate}</div>
-                        <div style="font-size: 12px; color: #666;">With Dates</div>
+                    <div class="stat-card">
+                        <div class="stat-number">${withDate}</div>
+                        <div class="stat-label">With Dates</div>
                     </div>
-                    <div style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); padding: 16px; border-radius: 12px; text-align: center;">
-                        <div style="font-size: 28px; font-weight: bold; color: #ed8936;">${withoutDate}</div>
-                        <div style="font-size: 12px; color: #666;">Missing Dates</div>
+                    <div class="stat-card">
+                        <div class="stat-number">${withoutDate}</div>
+                        <div class="stat-label">Missing Dates</div>
                     </div>
                 </div>
-                <div style="margin-top: 16px; padding-top: 16px; border-top: 1px solid #e0e0e0;">
+                <div class="action-breakdown">
                     <strong>📍 Actions detected:</strong>
-                    <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px;">
-                        ${Object.entries(actionCounts).map(([a,c]) => `<span style="background: #e0e7ff; color: #3730a3; padding: 4px 12px; border-radius: 20px; font-size: 12px;">${a.replace(/_/g,' ')}: ${c}</span>`).join('')}
+                    <div class="action-tags">
+                        ${Object.entries(actionCounts).map(([a,c]) => `<span class="action-tag">${a.replace(/_/g,' ')}: ${c}</span>`).join('')}
                     </div>
                 </div>
             `;
@@ -330,7 +319,7 @@
             const res = await fetch('/debug_date', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({post_text:postText}) });
             const data = await res.json();
             resultDiv.innerHTML = `
-                <div class="extracted" style="background: #f7fafc; padding: 16px; border-radius: 12px;">
+                <div class="extracted">
                     <strong>🔍 Date extraction debug</strong><br>
                     📅 Extracted: <strong>${data.extracted_date || 'NOT FOUND'}</strong><br>
                     📝 First lines:<br><code style="font-size:11px; display: block; background: #f0f0f0; padding: 8px; margin-top: 5px;">${(data.raw_text_preview || '').replace(/</g, '&lt;')}</code><br>
@@ -349,7 +338,7 @@
             const data = await res.json();
             const ok = data.success ? '✅ Date found' : '❌ No date detected';
             resultDiv.innerHTML = `
-                <div class="extracted" style="background: #f7fafc; padding: 16px; border-radius: 12px;">
+                <div class="extracted">
                     <strong>🧪 Advanced date test</strong><br>
                     ${ok}<br>
                     📅 Line‑based: ${data.line_based_extraction || '—'}<br>
